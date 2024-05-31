@@ -1,0 +1,536 @@
+{
+	"info": {
+		"_postman_id": "bb75be94-fd94-4837-92a6-57f5683064fa",
+		"name": "E-Commerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35180201"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Token",
+					"item": [
+						{
+							"name": "Obtain Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/accounts/"
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxNzEzOTA1NCwiaWF0IjoxNzE3MDUyNjU0LCJqdGkiOiI1MTVmMmMwNGU2MGM0NmFmOGVlM2U4NGZhMDE4NDA4YyIsInVzZXJfaWQiOjR9.7ehF_B3RfGXNQqw6CS7_FdalT8fC9A-Xi0d6mEj9QNM\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/accounts/refresh/"
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTUzNDI4LCJpYXQiOjE3MTcxMzU0MjgsImp0aSI6IjYxMTdhODA4NmI0MjRhMGY5ZGE1NjVjZmQ2ZmZjMDA4IiwidXNlcl9pZCI6Nn0.WO8RVc0qiKMRo35sBIcx1NvPGvBoX7pCzJwYmwCeuiY\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/accounts/verify/"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"ali\",\n    \"email\": \"aliasghar@example.com\",\n    \"password1\": \"root12345\",\n    \"password2\": \"root12345\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/accounts/user-registration/"
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"root12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/accounts/login/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Add Products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY1MzAwLCJpYXQiOjE3MTcxNDczMDAsImp0aSI6IjQ1MWQ1MGY0YmViMTQ2MmNiNzFlNDRhNzE1ZWExZDRkIiwidXNlcl9pZCI6MX0.7TFf3xcJPgkEHkIckk5A_X6NBxnGiesIQwcpiQlLFDg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_name\": \"HP - EliteBook\",\n    \"product_price\": 123688,\n    \"product_stock\": 14\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/products/"
+					},
+					"response": []
+				},
+				{
+					"name": "Show Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/products/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Show User Cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/products/cart/"
+					},
+					"response": []
+				},
+				{
+					"name": "Create User Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/products/cart/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart Items",
+			"item": [
+				{
+					"name": "Show Cart Items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>ID</th>",
+									"        <th>Cart Status</th>",
+									"        <th>Items</th>",
+									"    </tr>",
+									"    ",
+									"    {{#each response}}",
+									"        <tr>",
+									"            <td>{{id}}</td>",
+									"            <td>{{cart_status}}</td>",
+									"            <td>{{items}}</td>",
+									"        </tr>",
+									"    {{/each}}",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return {response: pm.response.json()}",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/products/cart/item/"
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Cart Items",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart_product\": 2,\n    \"cart_product_quantity\": 7,\n    \"cart\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/products/cart/item/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Show Order Items",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/products/order/"
+					},
+					"response": []
+				},
+				{
+					"name": "Show Order Items All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MDcwMDI3LCJpYXQiOjE3MTcwNTIwMjcsImp0aSI6ImViNDg5MGVjNGQzMzQ2MjVhNWYyMWIxOWY0OGUzNTMxIiwidXNlcl9pZCI6MX0.wasulJx2FYrr4KqaEPKrF8MLCIXrCamjfwJ1WmLnUOw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/order/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"order",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/products/order/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shipping Address",
+			"item": [
+				{
+					"name": "Create Shipping Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"Main Avenue 12, Test City\",\n    \"user\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/products/shipping-address/"
+					},
+					"response": []
+				},
+				{
+					"name": "Show Shipping Address",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/products/shipping-address/"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "usman",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTcyMjk3LCJpYXQiOjE3MTcxNTQyOTcsImp0aSI6IjRlYzBlODQ1NDBlZDRlYzFiM2UyMTQyZmQxNzc2OTg5IiwidXNlcl9pZCI6Mn0.PIgB4WPvlR-l6HVWHpXDZSkdEZ3ffFpxlrG1rac7SLA"
+		}
+	]
+}
