@@ -121,6 +121,14 @@
 						"url": "http://127.0.0.1:8000/accounts/login/"
 					},
 					"response": []
+				},
+				{
+					"name": "User Change Passwkrd",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
@@ -487,13 +495,13 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTY4MjkyLCJpYXQiOjE3MTcxNTAyOTIsImp0aSI6IjMzMGEwNGQwNTg0OTRmYmI4ZmQwZjFjMGE3YTIwMGQyIiwidXNlcl9pZCI6Mn0.-iGkypqyjZQZaBY7nResBlhpR8QEFayA_y1tTJ0arGk",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MTc3MzE0LCJpYXQiOjE3MTcxNTkzMTQsImp0aSI6IjUyMzk3NGQ1MWQ3YTQ3ZGViMzgxYWZjYmQ1NjlmNWMxIiwidXNlcl9pZCI6M30.uaik2YmW4lsMn09OQV0XZl-qo9wY7kUFFFnNy8btQto",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"address\": \"Main Avenue 12, Test City\",\n    \"user\": 2\n}",
+							"raw": "{\n    \"address\": \"Main Avenue 12, Test City\",\n    \"user\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"

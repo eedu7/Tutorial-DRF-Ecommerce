@@ -67,24 +67,6 @@ class ShippingAddressAPIView(GenericAPIView):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def put(self, request, *args, **kwargs):
-        address = self.get_object()
-        serializer = self.get_serializer(
-            address, data=request.data, context={"request": request}
-        )
-        serializer.is_valid(raise_exception=True)
-        address = serializer.save()
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-    def patch(self, request, *args, **kwargs):
-        address = self.get_object()
-        serializer = self.get_serializer(
-            address, data=request.data, partial=True, context={"request": request}
-        )
-        serializer.is_valid(raise_exception=True)
-        address = serializer.save()
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
 
 class CartItemAPIView(GenericAPIView):
     serializer_class = CartItemsSerializer
@@ -155,6 +137,7 @@ class OrderAPIView(GenericAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
+        serializer = ProductSerializer()
         serializer = self.get_serializer(
             data=request.data, context={"request": request}
         )

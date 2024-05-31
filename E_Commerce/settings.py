@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "accounts.apps.AccountsConfig",  # DRF -> Building API
     "rest_framework_simplejwt",  # DRF - Simple JWT
+    "drf_yasg",  # API Documentation
 ]
 
 MIDDLEWARE = [

@@ -1,14 +1,17 @@
 from django.contrib.auth import authenticate
+from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from accounts.serializers import (
     UserRegistrationSerializer,
     UserProfileSerializer,
+UserPasswordChangeSerializer
 )
+
+User = get_user_model()
 
 
 # Token Generation
@@ -61,6 +64,25 @@ class UserLoginAPIView(GenericAPIView):
 class UserProfileAPIView(GenericAPIView):
     serializer_class = UserProfileSerializer
 
+    def get_queryset(self):
+        user = self.request.user
+        return User.objects.filter(username=user.username)
+
     def get(self, request, *args, **kwargs):
-        serializer = self.serializer_class(request.user)
+        user = self.get_queryset()
+        serializer = self.serializer_class(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class UserPasswordChangeAPIView(GenericAPIView):
+    serializer_class = UserPasswordChangeSerializer
+
+    def post(self, request, *args, **kwargs):
+        user = self.request.user
+        token = get_tokens_for_user(user)
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        return Response({
+            "Success": "Password Changed Successfully",
+            "token": token,
+        }, status=status.HTTP_200_OK)

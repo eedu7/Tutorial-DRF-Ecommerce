@@ -24,7 +24,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class ShippingAddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShippingAddress
-        fields = ["address", "second_address", "city"]
+        fields = ["address", "second_address", "city", "user"]
 
 
 class ProductInfoSerializer(serializers.ModelSerializer):
@@ -38,12 +38,7 @@ class CartItemsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CartItems
-        fields = [
-            "cart",
-            "cart_product",
-            "cart_product_quantity",
-            "cart_product_info"
-        ]
+        fields = ["cart", "cart_product", "cart_product_quantity", "cart_product_info"]
         extra_kwargs = {
             "cart": {"write_only": True},
             "cart_product": {"write_only": True},
